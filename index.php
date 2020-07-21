@@ -318,6 +318,7 @@
         <div class="copyright-content">
           <div class="c-text">
             <h1>
+            baasemosman
               &copy All Rights Reserved. Powered by <a href="">Basem osman</a>
             </h1>
           </div>
