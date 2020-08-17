@@ -170,12 +170,11 @@
     </aside>
     <main>
     <?php
-include ('database_config/d-config.php');
-// include ('database_config/d-connection.php');
-
-
-
-?>
+      include ('database_config/db-conn.php');
+      include ('database_config/products-sql.php');
+      $pro = new Products();
+      $product = $pro->getrundproduct('قسم البقالة');
+    ?>
       <div class="slideshow-container">
         <div class="mySlides fade">
           <div class="slide">
@@ -235,51 +234,26 @@ include ('database_config/d-config.php');
       </div>
       <div class="h-title"><h1>Product catalog</h1></div>
       <div class="all-cards">
-        <div class="card-product">
-          <img src="./img/pepsi.jpg" alt="" />
-          <h4>soft drink and juice</h4>
-          <h3>Pepsi Soda Can(.33ml)</h3>
-          <div class="card-price-content">
-            <span>£0.75</span
-            ><a href=""><i class="fas fa-shopping-cart">+</i></a>
-          </div>
-        </div>
-        <div class="card-product">
-          <img src="./img/pepsi.jpg" alt="" />
-          <h4>soft drink and juice</h4>
-          <h3>Pepsi Soda Can(.33ml)</h3>
-          <div class="card-price-content">
-            <span>£0.75</span
-            ><a href=""><i class="fas fa-shopping-cart">+</i></a>
-          </div>
-        </div>
-        <div class="card-product">
-          <img src="./img/pepsi.jpg" alt="" />
-          <h4>soft drink and juice</h4>
-          <h3>Pepsi Soda Can(.33ml)</h3>
-          <div class="card-price-content">
-            <span>£0.75</span
-            ><a href=""><i class="fas fa-shopping-cart">+</i></a>
-          </div>
-        </div>
-        <div class="card-product">
-          <img src="./img/pepsi.jpg" alt="" />
-          <h4>soft drink and juice</h4>
-          <h3>Pepsi Soda Can(.33ml)</h3>
-          <div class="card-price-content">
-            <span>£0.75</span
-            ><a href=""><i class="fas fa-shopping-cart">+</i></a>
-          </div>
-        </div>
-        <div class="card-product">
-          <img src="./img/pepsi.jpg" alt="" />
-          <h4>soft drink and juice</h4>
-          <h3>Pepsi Soda Can(.33ml)</h3>
-          <div class="card-price-content">
-            <span>£0.75</span
-            ><a href=""><i class="fas fa-shopping-cart">+</i></a>
-          </div>
-        </div>
+        <?php 
+
+
+        if(is_array($product) && !empty($product)){
+            foreach($product as $id => $row){?>
+            <div class="card-product">
+              <img src="./images/<?=$row['product_image']?>" alt="img" />
+              <h4><?=$row['product_category']?></h4>
+              <h3><?=$row['product_name']?></h3>
+              <div class="card-price-content">
+                <span><?=$row['product_price']?></span
+                ><a href=""><i class="fas fa-shopping-cart">+</i></a>
+               </div>
+            </div>
+          <?php }
+        }else{
+          echo '<h1> NO Products found</h1>';
+        }
+        
+        ?>
       </div>
 
       <footer>

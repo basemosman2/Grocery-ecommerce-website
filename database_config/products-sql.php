@@ -1,9 +1,8 @@
 <?php
 class Products extends DB {
 
-function getadmin(){
-
-  $pro_view = $this->fetch("SELECT * FROM admin");
+function getrundproduct($cate){
+  $pro_view = $this->fetch("SELECT * FROM `products` where department = '$cate' ORDER BY RAND() LIMIT 20 ");
   return $pro_view;
 }
 
