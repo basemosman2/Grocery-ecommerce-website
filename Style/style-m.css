@@ -466,13 +466,11 @@
 }
 
 main {
-  position: relative;
   width: 80%;
   background: #f6f9fc;
   padding: 0 0 0 10px;
-  top: 70px;
-  left: 270px;
-  z-index: -99;
+  float: right;
+  margin-top: 70px;
 }
 
 .cat-text {
@@ -559,6 +557,7 @@ main {
   background: #373f50;
   padding: 10px;
   margin-top: 30px;
+  overflow: hidden;
 }
 
 .f-container h1 {
@@ -602,11 +601,11 @@ main {
   cursor: pointer;
 }
 
-/* .iso,
+.iso,
 .android .a-content {
   display: inline-block;
   text-align: right;
-} */
+}
 .app-content i {
   font-size: 30px;
   color: white;

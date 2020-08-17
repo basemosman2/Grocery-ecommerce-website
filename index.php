@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -168,6 +169,13 @@
       </div>
     </aside>
     <main>
+    <?php
+include ('database_config/d-config.php');
+// include ('database_config/d-connection.php');
+
+
+
+?>
       <div class="slideshow-container">
         <div class="mySlides fade">
           <div class="slide">
@@ -318,8 +326,8 @@
         <div class="copyright-content">
           <div class="c-text">
             <h1>
-            baasemosman
-              &copy All Rights Reserved. Powered by <a href="">Basem osman</a>
+            shopping
+              &copy All Rights Reserved. developed by <a href="">Basem osman</a>
             </h1>
           </div>
           <div class="card-icon">
@@ -328,6 +336,7 @@
           </div>
         </div>
       </footer>
+
     </main>
     <script src="./JScript/script.js"></script>
   </body>
