@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>About Us</title>
+    <title>Contact Us</title>
     <?php include('head.php')?>
   </head>
   <body>
@@ -10,7 +10,7 @@
        include ('sidebar.php');
       ?>
       <main>
-       
+        
       </main>
      <script src="./JScript/script.js"></script>
   </body>
