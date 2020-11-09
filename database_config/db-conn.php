@@ -6,6 +6,11 @@ define('DB_CHARSET', 'utf8');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 
+define('PATH_LIB', __DIR__ . DIRECTORY_SEPARATOR);
+
+session_start();
+if (!isset($_SESSION['cart'])) { $_SESSION['cart'] = []; }
+
 class DB {
 
   protected $pdo = null;
