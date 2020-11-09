@@ -1,0 +1,52 @@
+@media only screen and (max-width: 600px) {
+  .logo {
+    font-size: 12px;
+  }
+  .m-display-icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .m-sicon {
+    margin-right: 10px;
+  }
+
+  .fa-bars {
+    font-size: 18px;
+  }
+
+  .searchbox,
+  .signbox,
+  .cart {
+    display: none;
+  }
+
+  .side-menu {
+    width: 80%;
+    z-index: 99;
+    top: 73px;
+    left: -500px;
+    display: none;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  .slideshow-container {
+    display: none;
+  }
+
+  .all-cards {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .card-product {
+    width: 170px;
+    justify-self: center;
+  }
+
+  .card-price-content a {
+    opacity: 1;
+  }
+}

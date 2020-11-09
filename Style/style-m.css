@@ -63,6 +63,30 @@
   color: #373f50;
 }
 
+.m-sicon {
+  background: none;
+  border-style: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #373f50;
+}
+
+.m-display-icons {
+  display: none;
+}
+
+.menu-bars {
+  display: none;
+}
+
+.m-user-icon {
+  font-size: 24px;
+  padding: 10px;
+  color: #373f50;
+}
+
 .signbox {
   display: flex;
   align-items: center;
@@ -335,6 +359,15 @@
   padding: 10px;
 }
 
+.main-menu ul li a {
+  text-decoration: none;
+  color: #505152;
+}
+
+.main-menu ul li:hover a {
+  color: #fe736c;
+}
+
 /* end of menus ------------- */
 
 /* start of contact ------------- */
@@ -508,6 +541,7 @@ main {
   background: white;
   border-radius: 10px;
   box-shadow: 0px 5px 10px -4px rgb(0, 0, 0, 0.75);
+  justify-self: center;
 }
 .card-product img {
   width: 80px;
@@ -543,6 +577,16 @@ main {
   color: white;
   border-radius: 3px;
   box-shadow: 2px 5px 10px -4px rgb(254, 67, 68, 0.75);
+  cursor: pointer;
+}
+
+.added {
+  width: 100%;
+  display: none;
+  margin: auto;
+  background-color: #59c879;
+  padding: 10px 0;
+  border-radius: 10px 0;
 }
 
 .card-product:hover a {
