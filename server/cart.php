@@ -45,6 +45,37 @@ switch ($_POST['req']) {
               }
               echo sprintf("£%0.2f", $totalprice);
               break;
+
+            case 'cartlist':
+              $cartLib = new Cart();
+              $products = $cartLib -> details();
+              if (count($_SESSION['cart'])>0) {
+                foreach ($_SESSION['cart'] as $id => $qty) {
+                  $sub = (int)$qty * (double)$products[$id]['product_price'];
+                 ?>
+                  
+                <div class="cart-item" id="item<?=$id?>">
+                  <div class="item-content">
+                    <img src="./images/<?= $products[$id]['product_image'] ?>" alt="icon">
+                    <h3><?= $products[$id]['product_name'] ?></h3>
+                    <p><?= sprintf("£%0.2f", $sub) ?></p><small>x</small><span id="qty_<?=$id?>"><?= $qty?></span>
+                  </div>
+                  <i class="fa fa-window-close" onclick="cart.remove(<?=$id?>);"></i>
+                </div><?php
+                }
+              }
+              break;
+
+              case 'remove':
+                  $qty = $_POST['qty'] -1;
+                  if($qty == 0){
+                    unset($_SESSION['cart'][$_POST['product_id']]);
+                    echo $qty;
+                  }else{
+                    $_SESSION['cart'][$_POST['product_id']] = $qty;
+                    echo $qty;
+                  }
+                break;
     }
 
 ?>

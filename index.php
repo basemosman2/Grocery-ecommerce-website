@@ -5,8 +5,6 @@ include ('database_config/products-sql.php');
 $pro = new Products();
 $product = $pro->getrundproduct('قسم البقالة');                       
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,6 +15,7 @@ $product = $pro->getrundproduct('قسم البقالة');
   <?php
        include ('header.php');
        include ('sidebar.php');
+       
       ?>
     <main>
       <div class="slideshow-container" id="slides">
@@ -77,9 +76,10 @@ $product = $pro->getrundproduct('قسم البقالة');
         <i>Product catalog</i>
       </div>
       <div class="h-title"><h1>Product catalog</h1></div>
+
       <div class="all-cards">
         <?php 
-
+        //var_dump($_SESSION["cart"]);
         if(is_array($product) && !empty($product)){
             foreach($product as $id => $row){?>
             <div class="card-product">

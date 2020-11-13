@@ -42,23 +42,9 @@
               <span><i class="fas fa-sort-down"></i></span>
             </div>
             <div class="cart-list">
-              <div class="cart-item">
-                <div class="item-content">
-                  <img src="./img/pepsi.jpg" alt="icon">
-                  <h3>Frozen chicken</h3>
-                  <p>£3.00</p><span>x1</span>
-                </div>
-                <i class="fa fa-window-close"></i>
+              <div id="cart-items-container">
               </div>
-              <div class="cart-item">
-                <div class="item-content">
-                  <img src="./img/pepsi.jpg" alt="icon">
-                  <h3>Frozen chicken2</h3>
-                  <p>£3.00</p><span>x1</span>
-                </div>
-                <i class="fa fa-window-close"></i>
-              </div>
-              <div class="checkout">
+             <div class="checkout">
                 <div class="total">
                   <p>total:</p>
                   <span id="itemsprice2">£0.00</span>

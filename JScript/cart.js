@@ -1,6 +1,5 @@
 var cart = {
     ajax:function (opt){
-
     var data = null;
     if (opt.data) {
       data = new FormData();
@@ -36,13 +35,14 @@ var cart = {
         load : function (res) {
           cart.count();
           cart.itemsprice();
+          cart.cartlist();
           // @TODO
           var x = document.getElementById("eAdd"+id);
           x.innerHTML=res;
           x.style.display = "block";
           setTimeout(function () {
           x.style.display = "none";
-        }, 3000);
+        }, 500);
           return false;
         }
       });
@@ -63,15 +63,52 @@ var cart = {
           cart.ajax({
             url : "./server/cart.php",
             data : { req : "price", },
-            target : "itemsprice1"
-            // load : function (res) {
-            //   alert("sdsd");
-            //   x.innerHTML = res;
-            // }
+            //target : "itemsprice1"
+            load : function (res) {
+              var price1 = document.querySelector("#itemsprice1");
+              var price2 = document.querySelector("#itemsprice2");
+              price1.innerHTML = res;
+              price2.innerHTML = res;
+            }
           });
-        }
+        },
 
+        remove : function (id) {
+          var qty = document.getElementById("qty_"+id).innerText;
+          cart.ajax({
+            url : "./server/cart.php",
+            data : {
+              req : "remove",
+              product_id : id,
+              qty : qty
+            },
+            load : function (res) {
+              if(res == 0){
+                $("#item"+id).fadeOut("slow",function () {
+                  cart.count();
+                  cart.itemsprice();
+                  cart.cartlist();
+                }); 
+              }else{
+                cart.count();
+                cart.itemsprice();
+                cart.cartlist();
+              
+              }
+            }
+          });
+          },
+
+        cartlist : function () {
+            cart.ajax({
+              url : "./server/cart.php",
+              data : { req : "cartlist", },
+              target:"cart-items-container"
+            });
+          }
 };
 
 window.addEventListener("load", cart.count);
 window.addEventListener("load", cart.itemsprice);
+window.addEventListener("load", cart.cartlist);
+
