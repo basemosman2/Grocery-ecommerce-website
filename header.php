@@ -49,7 +49,8 @@
                   <p>total:</p>
                   <span id="itemsprice2">£0.00</span>
                 </div>
-                <button>
+                
+                <button onclick="location.href='checkout.php';">
                   <i class="fa fa-credit-card"></i>
                   <span>Checkout</span>
                   <i class="fas fa-chevron-right"></i>

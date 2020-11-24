@@ -34,6 +34,14 @@ $(document).ready(function () {
 
     $("#" + x).slideToggle("slow", function () {});
   });
+
+    $(".credit input[id='credit']").click(function () {
+      $('.card-details').slideToggle();
+    });
+
+    $(".cash input[id='cash']").click(function () {
+      $('.card-details').slideUp();
+    });
 });
 
 
