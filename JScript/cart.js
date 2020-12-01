@@ -67,8 +67,10 @@ var cart = {
             load : function (res) {
               var price1 = document.querySelector("#itemsprice1");
               var price2 = document.querySelector("#itemsprice2");
+              var choutprice = document.querySelector("#chout-price");
               price1.innerHTML = res;
               price2.innerHTML = res;
+              choutprice.innerHTML =res;
             }
           });
         },
@@ -105,7 +107,54 @@ var cart = {
               data : { req : "cartlist", },
               target:"cart-items-container"
             });
-          }
+          },
+
+          checkout: function () {
+            cart.ajax({
+              url : "./server/cart.php",
+              data : { req : "chout-cartlist", },
+              target:"chout-cart"
+            });
+          },
+
+          change : function (id) {
+            // change() : change quantity
+              //var x = document.getElementById("gg");
+              var qty = document.getElementById("choutQty_"+id).value;
+              cart.ajax({
+                url : "./server/cart.php",
+                data : {
+                  req : "change",
+                  product_id : id,
+                  qty : qty
+                },
+                load : function (res) {
+                  cart.count();
+                  cart.itemsprice();
+                  cart.cartlist();
+                  if (qty <=0) {
+                    $("#choutItem"+id).fadeOut();
+                  }
+                }
+              });
+            },
+
+          choutRemove : function (id) {
+            cart.ajax({
+              url : "./server/cart.php",
+              data : {
+                req : "chout-remove",
+                product_id : id,
+              },
+              load : function (res) {
+                  $("#choutItem"+id).fadeOut("slow",function () {
+                    cart.count();
+                    cart.itemsprice();
+                    cart.cartlist();
+                  }); 
+              }
+            });
+            }
 };
 
 window.addEventListener("load", cart.count);

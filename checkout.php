@@ -6,12 +6,17 @@
     <?php include('head.php')?>
 </head>
 
-<body>
+<body onload="cart.checkout()">
     <?php
+         include ('database_config/db-conn.php');
        include ('header.php');
        include ('sidebar.php');
+       
       ?>
     <main>
+        <?php
+         var_dump($_SESSION["cart"]);
+        ?>
         <div class="cat-text">
             <i class="fas fa-home"><span>Home</span></i>
             <i class="fas fa-angle-right"></i>
@@ -82,11 +87,11 @@
                 </div>
                 <div class="cart_details">
                     <h1>Your order</h1>
-                    <div class="chout-cart-list"></div>
+                    <div class="chout-cart-list" id="chout-cart"></div>
                     <div class="chout-subtotal">
                         <div class="subtotal">
                             <span>Subtotal:</span>
-                            <span>£0.00</span>
+                            <span id="chout-price">£0.00</span>
                         </div>
                         <div class="delivery">
                             <span>Delivery:</span>

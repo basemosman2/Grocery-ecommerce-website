@@ -78,7 +78,9 @@ textarea {
 }
 
 .chout-cart-list {
-  height: 100px;
+  height: auto;
+  margin: 10px;
+  padding: 10px 5px;
 }
 
 .chout-subtotal {
@@ -228,4 +230,54 @@ textarea {
 
 .btn-submit:hover {
   opacity: 1;
+}
+
+.chout-cartItem {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: relative;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.chout-cartItem .item-content {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  position: relative;
+}
+
+.chout-cartItem .item-content h3 {
+  font-size: 14px;
+  font-weight: 400;
+  max-width: 120px;
+  flex: 1;
+}
+
+.chout-cartItem .item-content input {
+  max-width: 40px;
+  margin-right: 30px;
+  padding: 5px;
+  outline: none;
+  border-radius: 2px;
+  border: 1px solid #0625f393;
+  position: absolute;
+  right: 0;
+  top: auto;
+}
+
+.chout-cartItem .item-content img {
+  max-width: 50px;
+  max-height: 50px;
+  margin-right: 10px;
+}
+
+.chout-cartItem i {
+  margin-bottom: 5px;
+  color: #fe696a;
+  font-size: 20px;
+  position: absolute;
+  right: 20px;
 }

@@ -53,15 +53,15 @@ switch ($_POST['req']) {
                 foreach ($_SESSION['cart'] as $id => $qty) {
                   $sub = (int)$qty * (double)$products[$id]['product_price'];
                  ?>
-                  
-                <div class="cart-item" id="item<?=$id?>">
-                  <div class="item-content">
-                    <img src="./images/<?= $products[$id]['product_image'] ?>" alt="icon">
-                    <h3><?= $products[$id]['product_name'] ?></h3>
-                    <p><?= sprintf("£%0.2f", $sub) ?></p><small>x</small><span id="qty_<?=$id?>"><?= $qty?></span>
-                  </div>
-                  <i class="fa fa-window-close" onclick="cart.remove(<?=$id?>);"></i>
-                </div><?php
+
+<div class="cart-item" id="item<?=$id?>">
+    <div class="item-content">
+        <img src="./images/<?= $products[$id]['product_image'] ?>" alt="icon">
+        <h3><?= $products[$id]['product_name'] ?></h3>
+        <p><?= sprintf("£%0.2f", $sub) ?></p><small>x</small><span id="qty_<?=$id?>"><?= $qty?></span>
+    </div>
+    <i class="fa fa-window-close" onclick="cart.remove(<?=$id?>);"></i>
+</div><?php
                 }
               }
               break;
@@ -76,6 +76,39 @@ switch ($_POST['req']) {
                     echo $qty;
                   }
                 break;
+
+                case 'chout-cartlist':
+                  $cartLib = new Cart();
+                  $products = $cartLib -> details();
+                  if (count($_SESSION['cart'])>0) {
+                    foreach ($_SESSION['cart'] as $id => $qty) {
+                      $sub = (int)$qty * (double)$products[$id]['product_price'];
+                     ?>
+
+<div class="chout-cartItem" id="choutItem<?=$id?>">
+    <div class="item-content">
+        <img src="./images/<?= $products[$id]['product_image'] ?>" alt="icon">
+        <h3><?= $products[$id]['product_name'] ?></h3>
+        <input id='choutQty_<?= $id ?>' onchange='cart.change(<?= $id ?>);' type='number' value='<?= $qty ?>' />
+    </div>
+    <i class="fa fa-window-close" onclick="cart.choutRemove(<?=$id?>);"></i>
+</div><?php
+                    }
+                  }
+                  break;
+
+                  case 'chout-remove':
+                     unset($_SESSION['cart'][$_POST['product_id']]);
+                  break;
+
+                  case "change":
+                    if ($_POST['qty'] == 0) {
+                      unset($_SESSION['cart'][$_POST['product_id']]);
+                    } else {
+                      $_SESSION['cart'][$_POST['product_id']] = $_POST['qty'];
+                    }
+                    echo "Cart updated";
+                    break;
     }
 
 ?>
