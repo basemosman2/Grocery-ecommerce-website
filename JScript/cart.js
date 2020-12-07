@@ -67,10 +67,15 @@ var cart = {
             load : function (res) {
               var price1 = document.querySelector("#itemsprice1");
               var price2 = document.querySelector("#itemsprice2");
-              var choutprice = document.querySelector("#chout-price");
+
               price1.innerHTML = res;
               price2.innerHTML = res;
-              choutprice.innerHTML =res;
+
+              // var choutprice = document.querySelector("#chout-price");
+              // var choutservice = document.querySelector("#chout-service");
+              // choutprice.innerHTML =res;
+              // choutservice.innerHTML =res;
+              
             }
           });
         },
@@ -113,7 +118,10 @@ var cart = {
             cart.ajax({
               url : "./server/cart.php",
               data : { req : "chout-cartlist", },
-              target:"chout-cart"
+              target:"chout-cart",
+              load:function () {
+                
+              }
             });
           },
 
@@ -132,6 +140,7 @@ var cart = {
                   cart.count();
                   cart.itemsprice();
                   cart.cartlist();
+                  cart.checkout();
                   if (qty <=0) {
                     $("#choutItem"+id).fadeOut();
                   }
@@ -151,6 +160,7 @@ var cart = {
                     cart.count();
                     cart.itemsprice();
                     cart.cartlist();
+                    cart.checkout();
                   }); 
               }
             });
@@ -160,4 +170,5 @@ var cart = {
 window.addEventListener("load", cart.count);
 window.addEventListener("load", cart.itemsprice);
 window.addEventListener("load", cart.cartlist);
+window.addEventListener("load", cart.checkout);
 

@@ -88,19 +88,7 @@
                 <div class="cart_details">
                     <h1>Your order</h1>
                     <div class="chout-cart-list" id="chout-cart"></div>
-                    <div class="chout-subtotal">
-                        <div class="subtotal">
-                            <span>Subtotal:</span>
-                            <span id="chout-price">£0.00</span>
-                        </div>
-                        <div class="delivery">
-                            <span>Delivery:</span>
-                            <span>£0.00</span>
-                        </div>
-                    </div>
-                    <div class="chout-total">
-                        <p>£0.00</p>
-                    </div>
+
                     <div class="chout-payment-type">
                         <div class="card">
                             <div class="credit" id="credit-input">

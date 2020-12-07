@@ -80,9 +80,20 @@ switch ($_POST['req']) {
                 case 'chout-cartlist':
                   $cartLib = new Cart();
                   $products = $cartLib -> details();
+
+                  $sub = 0;
+                  $total = 0;
+                  $serCharge=0;
+                  // $deliCharg= $_SESSION['delivery']['charges'];
+                  $deliCharg=1;
+                  $f_Total=0;
+
                   if (count($_SESSION['cart'])>0) {
                     foreach ($_SESSION['cart'] as $id => $qty) {
                       $sub = (int)$qty * (double)$products[$id]['product_price'];
+                      $total += $sub;
+                      $serCharge= $total * 0.10;
+                      $f_Total= $total+$serCharge+$deliCharg;
                      ?>
 
 <div class="chout-cartItem" id="choutItem<?=$id?>">
@@ -94,7 +105,30 @@ switch ($_POST['req']) {
     <i class="fa fa-window-close" onclick="cart.choutRemove(<?=$id?>);"></i>
 </div><?php
                     }
-                  }
+                  }else{?>
+<h1>Cart is empty</h1>
+<?php
+}
+?>
+
+<div class="chout-subtotal">
+    <div class="subtotal">
+        <span>Subtotal:</span>
+        <span id="chout-price"><?= sprintf("£%0.2f", $total) ?></span>
+    </div>
+    <div class="delivery">
+        <span>Delivery:</span>
+        <span><?= sprintf("£%0.2f",$deliCharg) ?></span>
+    </div>
+    <div class="service">
+        <span>Service Charge (%10):</span>
+        <span id="chout-service"><?= sprintf("£%0.2f", $serCharge) ?></span>
+    </div>
+</div>
+<div class="chout-total">
+    <p><?= sprintf("£%0.2f", $f_Total)?></p>
+</div>
+<?php
                   break;
 
                   case 'chout-remove':
