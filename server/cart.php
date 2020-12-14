@@ -85,7 +85,7 @@ switch ($_POST['req']) {
                   $total = 0;
                   $serCharge=0;
                   // $deliCharg= $_SESSION['delivery']['charges'];
-                  $deliCharg=1;
+                  $deliCharg =0.00;
                   $f_Total=0;
 
                   if (count($_SESSION['cart'])>0) {
@@ -106,7 +106,7 @@ switch ($_POST['req']) {
 </div><?php
                     }
                   }else{?>
-<h1>Cart is empty</h1>
+<h1 class="t_cartlist">Cart is empty</h1>
 <?php
 }
 ?>
@@ -128,7 +128,9 @@ switch ($_POST['req']) {
 <div class="chout-total">
     <p><?= sprintf("£%0.2f", $f_Total)?></p>
 </div>
+<a href=""></a>
 <?php
+
                   break;
 
                   case 'chout-remove':

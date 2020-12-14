@@ -8,7 +8,7 @@
 
 <body onload="cart.checkout()">
     <?php
-         include ('database_config/db-conn.php');
+       include ('database_config/db-conn.php');
        include ('header.php');
        include ('sidebar.php');
        
@@ -26,7 +26,8 @@
             <h1>Checkout</h1>
             <h4>Delivery Details</h4>
         </div>
-        <form action="" method="post">
+        <form action="success.php" method="post" name="orderform" onsubmit="return validate()">
+            <p id="invaild_title"></p>
             <div class="order_details">
                 <div class="deli_details">
                     <div class="input_group">
@@ -35,7 +36,7 @@
                                 First name
                                 <span>*</span>
                             </label>
-                            <input type="text">
+                            <input type="text" name="f_name" value="" required>
                         </div>
                     </div>
                     <div class="input_group">
@@ -44,7 +45,7 @@
                                 Last name
                                 <span>*</span>
                             </label>
-                            <input type="text">
+                            <input type="text" name="l_name" value="" required>
                         </div>
                     </div>
                     <div class="input_group">
@@ -53,7 +54,7 @@
                                 Phone number
                                 <span>*</span>
                             </label>
-                            <input type="text">
+                            <input type="text" name="phonenumber" value="" required>
                         </div>
                     </div>
                     <div class="input_group">
@@ -62,7 +63,7 @@
                                 Email Address
                                 <span>*</span>
                             </label>
-                            <input type="text">
+                            <input type="text" id="email" name="email" value="" required>
                         </div>
                     </div>
                     <div class="input_group address">
@@ -71,16 +72,24 @@
                                 Address
                                 <span>*</span>
                             </label>
-                            <input type="text">
+                            <input type="text" name="address" value="" required>
+                        </div>
+                    </div>
+                    <div class="input_group">
+                        <div class="postcode_group">
+                            <label>
+                                Postcode
+                                <span>*</span>
+                            </label>
+                            <input type="text" id="postcode" name="postcode" value="" required>
                         </div>
                     </div>
                     <div class="input_group">
                         <div class="note_group">
                             <label>
                                 Order note
-                                <span>*</span>
                             </label>
-                            <textarea name="" id="" cols="20" rows="7"
+                            <textarea name="" id="" cols="20" rows="7" value=""
                                 placeholder="Please write here any additional information"></textarea>
                         </div>
                     </div>
@@ -118,13 +127,14 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn-submit">Place Order</button>
+                    <button type="submit" class="btn-submit">Place Order</button>
                 </div>
             </div>
         </form>
     </main>
     <script src="./JScript/script.js"></script>
     <script src="./JScript/cart.js"></script>
+    <script src="./JScript/form-validation.js"></script>
 </body>
 
 </html>

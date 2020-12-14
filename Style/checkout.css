@@ -40,8 +40,19 @@ textarea {
   outline: none;
 }
 
+.deli_details .input_group input:valid,
+.input_group input:in-range {
+  background: hsl(120, 50%, 90%);
+  border-color: hsl(120, 50%, 50%);
+}
+
+/* .deli_details .input_group input:invalid {
+  border-color: hsl(0, 50%, 50%);
+  background: hsl(0, 50%, 90%);
+} */
+
 .deli_details .address {
-  grid-column: 1/3;
+  grid-column: 1/2;
 }
 
 .deli_details .address input {
@@ -96,17 +107,6 @@ textarea {
   justify-content: space-between;
   margin-bottom: 5px;
 }
-
-/* .subtotal {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 5px;
-}
-
-.delivery {
-  display: flex;
-  justify-content: space-around;
-} */
 
 .chout-total {
   padding: 30px;
@@ -287,4 +287,22 @@ textarea {
   position: absolute;
   right: 20px;
   cursor: pointer;
+}
+
+.t_cartlist {
+  display: inline-block;
+  font-size: 30px;
+  color: #565454;
+  padding: 10px;
+}
+
+form #invaild_title {
+  margin: 10px;
+  padding: 10px;
+  font-size: 18px;
+  color: #e0cbc8;
+  background: #ec9286;
+  display: none;
+  width: 400px;
+  border-radius: 7px;
 }
