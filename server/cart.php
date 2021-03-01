@@ -48,6 +48,7 @@ switch ($_POST['req']) {
 
             case 'cartlist':
               $cartLib = new Cart();
+              $message="";
               $products = $cartLib -> details();
               if (count($_SESSION['cart'])>0) {
                 foreach ($_SESSION['cart'] as $id => $qty) {
@@ -60,7 +61,7 @@ switch ($_POST['req']) {
         <h3><?= $products[$id]['product_name'] ?></h3>
         <p><?= sprintf("£%0.2f", $sub) ?></p><small>x</small><span id="qty_<?=$id?>"><?= $qty?></span>
     </div>
-    <i class="fa fa-window-close" onclick="cart.remove(<?=$id?>);"></i>
+    <i class="fa fa-trash-alt" onclick="cart.remove(<?=$id?>);"></i>
 </div><?php
                 }
               }
@@ -85,7 +86,7 @@ switch ($_POST['req']) {
                   $total = 0;
                   $serCharge=0;
                   // $deliCharg= $_SESSION['delivery']['charges'];
-                  $deliCharg =0.00;
+                  $deliCharg =4.00;
                   $f_Total=0;
 
                   if (count($_SESSION['cart'])>0) {
@@ -98,11 +99,14 @@ switch ($_POST['req']) {
 
 <div class="chout-cartItem" id="choutItem<?=$id?>">
     <div class="item-content">
+        <input type="hidden" name="product_id[]" value="<?= $id ?>" />
         <img src="./images/<?= $products[$id]['product_image'] ?>" alt="icon">
         <h3><?= $products[$id]['product_name'] ?></h3>
         <input id='choutQty_<?= $id ?>' onchange='cart.change(<?= $id ?>);' type='number' value='<?= $qty ?>' />
     </div>
-    <i class="fa fa-window-close" onclick="cart.choutRemove(<?=$id?>);"></i>
+    <i class="fa fa-trash-alt" onclick="cart.choutRemove(<?=$id?>);"></i>
+    <p class="chout-cart-price"> £<?= $products[$id]['product_price']?>
+    </p>
 </div><?php
                     }
                   }else{?>
@@ -128,8 +132,15 @@ switch ($_POST['req']) {
 <div class="chout-total">
     <p><?= sprintf("£%0.2f", $f_Total)?></p>
 </div>
-<a href=""></a>
 <?php
+  if (count($_SESSION['cart']) > 0 && !isset($_SESSION["uid"])) {
+    if ($total <= 25) {
+      echo "<h2 class='cart-alert'>Minimum Subtotal Order Spend £25 pound</h2>";
+      exit();
+    }
+      echo ' <input type="submit"  name="login_user_with_product" class="btn-submit" value="Go To Payment">';
+    
+  }
 
                   break;
 
@@ -141,9 +152,14 @@ switch ($_POST['req']) {
                     if ($_POST['qty'] == 0) {
                       unset($_SESSION['cart'][$_POST['product_id']]);
                     } else {
-                      $_SESSION['cart'][$_POST['product_id']] = $_POST['qty'];
+                      $_SESSION['cart'][$_POST['product_id']] = (int) $_POST['qty'];
                     }
                     echo "Cart updated";
+                    break;
+
+                    case "userdata":
+                     
+                      echo $Fname." ".$Lname;
                     break;
     }
 

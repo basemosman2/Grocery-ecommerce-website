@@ -1,9 +1,8 @@
 <?php
-
 include ('database_config/db-conn.php');
 include ('database_config/products-sql.php');
 $pro = new Products();
-$product = $pro->getrundproduct('قسم البقالة');                       
+$product = $pro->getrundproduct('قسم البقالة');                      
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +92,7 @@ $product = $pro->getrundproduct('قسم البقالة');
 
         <div class="all-cards">
             <?php 
-        //var_dump($_SESSION["cart"]);
+        //var_dump($_SESSION["user"]);
         if(is_array($product) && !empty($product)){
             foreach($product as $id => $row){?>
             <div class="card-product">

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION["user"])) {
+	header("location:./index.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,63 +22,57 @@
         <div class="log-container">
             <div class="forms-container">
                 <div class="signin-signup">
-                    <form action="#" class="sign-in-form form">
+                    <form id="signin_form" class="sign-in-form form" onsubmit="return false" novalidation>
                         <h2 class="title">Sign in</h2>
                         <div class="input-field">
                             <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Username" />
+                            <input type="email" placeholder="Username" name="login_email" required />
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Password" />
+                            <input type="password" placeholder="Password" name="login_password" required />
                         </div>
                         <input type="submit" value="Login" class="btn solid" />
-                        <p class="social-text">Or Sign in with social platforms</p>
-                        <div class="social-media">
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-google"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
                     </form>
-                    <form action="#" class="sign-up-form form">
+
+
+                    <form id="signup_form" class="sign-up-form form" onsubmit="return false">
                         <h2 class="title">Sign up</h2>
-                        <div class="input-field">
-                            <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Username" />
+                        <ul class="signup_msg"></ul>
+                        <div class="sign-up-form-container">
+                            <div class="input-field">
+                                <i class="fas fa-user"></i>
+                                <input type="text" name="name" placeholder="Name" required />
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" name="email" placeholder="Email" required />
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-location-arrow"></i>
+                                <input type="text" name="address" placeholder="Address" required />
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-map-pin"></i>
+                                <input type="text" name="postcode" placeholder="Postcode" required />
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-mobile-alt"></i>
+                                <input type="text" name="mobile" placeholder="Phone Number" required />
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" name="password" placeholder="Password" required />
+                            </div>
+                            <div class="input-field">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" name="repassword" placeholder="Confirm Password" required />
+                            </div>
                         </div>
-                        <div class="input-field">
-                            <i class="fas fa-envelope"></i>
-                            <input type="email" placeholder="Email" />
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Password" />
-                        </div>
-                        <input type="submit" class="btn" value="Sign up" />
-                        <p class="social-text">Or Sign up with social platforms</p>
-                        <div class="social-media">
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-google"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
+
+                        <input id="btn_submit" type="submit" name="signup_button" class="btn" value="Sign up" />
+
+
                     </form>
                 </div>
             </div>
@@ -81,8 +82,7 @@
                     <div class="content">
                         <h3>New here ?</h3>
                         <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-                            ex ratione. Aliquid!
+                            With us shopping is diffrent, Sign Up to enjoy shopping.
                         </p>
                         <button class="btn transparent" id="sign-up-btn">
                             Sign up
@@ -94,8 +94,7 @@
                     <div class="content">
                         <h3>One of us ?</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-                            laboriosam ad deleniti.
+                            Good to see you again.
                         </p>
                         <button class="btn transparent" id="sign-in-btn">
                             Sign in
@@ -108,7 +107,7 @@
     </main>
 
 
-    <script src="./JScript/signIn-signUp.js"></script>
+    <script src="./JScript/user-info.js"></script>
 </body>
 
 </html>
