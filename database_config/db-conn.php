@@ -33,16 +33,14 @@ class DB {
           PDO::ATTR_EMULATE_PREPARES => false
         ]
       );
-
-     
       return true;
     }
 
     // ERROR - DO SOMETHING HERE
     // THROW ERROR MESSAGE OR SOMETHING
     catch (Exception $ex) {
-      print_r($ex);
-      echo ("successfull connection");
+      //print_r($ex);
+      echo ("Unsuccessfull connection");
       die();
     }
   }
@@ -84,8 +82,8 @@ class DB {
     return true;
   }
 
-  function fetch($sql, $cond=null, $key=null, $value=null) {
-  // fetch() : perform select query
+  function fetch($sql, $cond=null, $key=null, $value=null) {  
+   // fetch() : perform select query
   // PARAM $sql : SQL query
   //       $cond : array of conditions
   //       $key : sort in this $key=>data order, optional
