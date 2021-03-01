@@ -1,4 +1,4 @@
-.checkout-title {
+/* .checkout-title {
   margin: 25px;
   color: #2b2c2e;
   font-weight: 500;
@@ -13,7 +13,7 @@ h4 {
   display: flex;
 }
 
-.deli_details {
+.user_info {
   width: 50%;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -21,17 +21,17 @@ h4 {
   grid-gap: 2px;
 }
 
-.deli_details .input_group label {
+.user_info .input_group label {
   display: block;
   font-size: 14px;
   padding: 5px;
 }
 
-.deli_details .input_group span {
+.user_info .input_group span {
   color: red;
 }
 
-.deli_details .input_group input,
+.user_info .input_group input,
 textarea {
   border: 1px solid #dae1e7;
   padding: 10px;
@@ -40,22 +40,17 @@ textarea {
   outline: none;
 }
 
-.deli_details .input_group input:valid,
+.user_info .input_group input:valid,
 .input_group input:in-range {
   background: hsl(120, 50%, 90%);
   border-color: hsl(120, 50%, 50%);
 }
 
-/* .deli_details .input_group input:invalid {
-  border-color: hsl(0, 50%, 50%);
-  background: hsl(0, 50%, 90%);
-} */
-
-.deli_details .address {
+.user_info .address {
   grid-column: 1/2;
 }
 
-.deli_details .address input {
+.user_info .address input {
   width: 95% !important;
 }
 
@@ -80,6 +75,7 @@ textarea {
   margin: auto;
   margin-bottom: 60px;
   border-radius: 5px;
+  transition: 0.5s ease-in;
 }
 
 .cart_details h1 {
@@ -97,7 +93,6 @@ textarea {
 .chout-subtotal {
   padding: 20px 0;
   border-bottom: 2px solid #eee;
-  border-top: 2px solid #eee;
   width: 80%;
   margin: auto;
 }
@@ -109,17 +104,18 @@ textarea {
 }
 
 .chout-total {
-  padding: 30px;
+  padding: 20px;
   font-size: 30px;
   font-weight: 600;
 }
 
 .chout-payment-type {
-  width: 80%;
+  width: 90%;
   margin: auto;
   padding: 0;
   border: 2px solid #eee;
   border-radius: 7px;
+  background: white;
 }
 
 .card i {
@@ -197,6 +193,7 @@ textarea {
   margin: auto;
   border: none;
   outline: none;
+  font-size: 16px;
 }
 
 .card-details div {
@@ -232,6 +229,7 @@ textarea {
   font-weight: 400;
   color: white;
   transition: 0.4s ease-out;
+  cursor: pointer;
 }
 
 .btn-submit:hover {
@@ -251,7 +249,7 @@ textarea {
 .chout-cartItem .item-content {
   display: flex;
   align-items: center;
-  width: 80%;
+  width: 75%;
   position: relative;
 }
 
@@ -296,7 +294,7 @@ textarea {
   padding: 10px;
 }
 
-form #invaild_title {
+form #alert-data {
   margin: 10px;
   padding: 10px;
   font-size: 18px;
@@ -305,4 +303,139 @@ form #invaild_title {
   display: none;
   width: 400px;
   border-radius: 7px;
+  list-style: none;
+}
+
+.cart-alert {
+  color: crimson;
+  background-color: bisque;
+  padding: 15px;
+  border-radius: 30px;
+  font-size: 18px;
+}
+
+.payment-display {
+  display: block;
+  width: 50%;
+  text-align: center;
+} */
+
+.chout-title {
+  padding: 10px;
+  padding-bottom: 0;
+}
+.order_details {
+  display: flex;
+}
+
+.cart_details {
+  width: 80%;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  margin: 20px 10px;
+  border-radius: 5px;
+}
+
+.cart_details h1 {
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.chout-cart-list {
+  height: auto;
+  margin: 5px;
+  padding: 10px 5px;
+}
+
+.chout-cartItem {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: relative;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.chout-cartItem .item-content {
+  display: flex;
+  align-items: center;
+  width: 75%;
+  position: relative;
+}
+
+.chout-cartItem .item-content img {
+  max-width: 50px;
+  max-height: 50px;
+  width: 40px;
+  margin: 0;
+  margin-right: 10px;
+  flex: 1;
+}
+
+.chout-cartItem .item-content h3 {
+  font-size: 14px;
+  font-weight: 400;
+  max-width: 400px;
+  flex: 1;
+}
+
+.chout-cartItem .item-content input {
+  max-width: 40px;
+  margin-right: 30px;
+  padding: 5px;
+  outline: none;
+  border-radius: 2px;
+  border: 1px solid #0625f393;
+}
+
+.chout-cartItem i {
+  margin-bottom: 5px;
+  color: #fe696a;
+  font-size: 20px;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+
+.chout-subtotal {
+  padding: 20px 0;
+  border-bottom: 2px solid #eee;
+  width: 80%;
+  margin: auto;
+}
+
+.chout-subtotal div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.chout-total {
+  padding: 20px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.btn-submit {
+  padding: 10px 20px;
+  width: 200px;
+  outline: none;
+  border: 1px solid #fe696a;
+  border-radius: 7px;
+  background: #fc381e;
+  opacity: 0.9;
+  margin: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  transition: 0.4s ease-out;
+  cursor: pointer;
+}
+
+.chout-cart-list .t_cartlist {
+  text-align: center;
+  color: #868282;
 }

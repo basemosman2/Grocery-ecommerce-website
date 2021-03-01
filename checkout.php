@@ -15,7 +15,12 @@
       ?>
     <main>
         <?php
-         var_dump($_SESSION["cart"]);
+        //  var_dump($_SESSION["cart"]);
+        //  if (isset($_SESSION['Guest_user'])) {
+        //    var_dump($_SESSION["Guest_user"]);
+        //     unset($_SESSION["Guest_user"]);
+        //  }
+        //session_destroy();
         ?>
         <div class="cat-text">
             <i class="fas fa-home"><span>Home</span></i>
@@ -24,12 +29,10 @@
         </div>
         <div class="chout-title">
             <h1>Checkout</h1>
-            <h4>Delivery Details</h4>
         </div>
-        <form action="success.php" method="post" name="orderform" onsubmit="return validate()">
-            <p id="invaild_title"></p>
+        <form method="post" action="./login.php" id="form-data">
             <div class="order_details">
-                <div class="deli_details">
+                <!-- <div class="user_info">
                     <div class="input_group">
                         <div class="firstname_group">
                             <label>
@@ -89,19 +92,20 @@
                             <label>
                                 Order note
                             </label>
-                            <textarea name="" id="" cols="20" rows="7" value=""
+                            <textarea name="note" id="" cols="20" rows="7" value=""
                                 placeholder="Please write here any additional information"></textarea>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="cart_details">
                     <h1>Your order</h1>
                     <div class="chout-cart-list" id="chout-cart"></div>
-
+                </div>
+                <!-- <div class="payment-display">
                     <div class="chout-payment-type">
                         <div class="card">
                             <div class="credit" id="credit-input">
-                                <input type="radio" id="credit" name="radio-group" checked>
+                                <input type="radio" id="credit" name="radio-group" value="credit" checked>
                                 <span class="checkmark"></span>
                                 <label for="credit">Credit Card</label>
                                 <i class="fas fa-credit-card"></i>
@@ -120,21 +124,21 @@
                         </div>
                         <div class="card">
                             <div class="cash">
-                                <input type="radio" id="cash" name="radio-group">
+                                <input type="radio" id="cash" name="radio-group" vaule="cash">
                                 <span class="checkmark"></span>
                                 <label for="cash">Cash on delivery</label>
                                 <i class="fas fa-wallet"></i>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn-submit">Place Order</button>
-                </div>
+                    <button type="submit" class="btn-submit">Place My Order</button>
+                </div> -->
             </div>
         </form>
     </main>
     <script src="./JScript/script.js"></script>
     <script src="./JScript/cart.js"></script>
-    <script src="./JScript/form-validation.js"></script>
+
 </body>
 
 </html>

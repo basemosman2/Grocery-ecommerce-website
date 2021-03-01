@@ -26,15 +26,31 @@
                 </div>
             </div>
             <i class="fas fa-bars menu-bars"></i>
-            <a href="./login.php" class="login-link">
-                <div class="signbox">
-                    <i class="far fa-user"></i>
-                    <div class="signin-box-text">
-                        <p>Hello,Sign in</p>
-                        <h3>My Account</h3>
+            <?php
+                if (!isset($_SESSION['user'])) {
+                    echo '<a href="./login.php" class="login-link">
+                    <div class="signbox">
+                        <i class="far fa-user"></i>
+                        <div class="signin-box-text">
+                            <h3>Hello,Sign in</h3>
+                            <h2>My Account</h2>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>';
+                }else{
+                    echo '<div class="login-wel">
+                    <a href="logout.php" class="logout-link">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                    <div class="signin-box-text">
+                        <h2>Hello,</h2>
+                        <h3>'.$_SESSION['user']['name'].'</h3>
+                    </div>
+                </div>';
+                }
+            ?>
+
+
 
             <div class="cart">
                 <div class="cart-icon-box">
