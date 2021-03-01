@@ -119,8 +119,13 @@ var cart = {
               url : "./server/cart.php",
               data : { req : "chout-cartlist", },
               target:"chout-cart",
-              load:function () {
-                
+              success:function (res) {
+                alert(res);
+                if (res =='G-userisSet') {
+                  $('.user_info').fadeOut();
+                  $('.cart_details').css('margin','10px 0');
+                  $('.payment-display').fadeIn('slow');
+                }
               }
             });
           },
@@ -166,6 +171,7 @@ var cart = {
             });
             }
 };
+
 
 window.addEventListener("load", cart.count);
 window.addEventListener("load", cart.itemsprice);
