@@ -29,6 +29,8 @@
         </div>
         <div class="chout-title">
             <h1>Checkout</h1>
+            <?php  var_dump($_SESSION['cart']); ?>
+
         </div>
         <form method="post" action="./login.php" id="form-data">
             <div class="order_details">

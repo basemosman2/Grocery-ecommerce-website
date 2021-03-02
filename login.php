@@ -4,6 +4,10 @@ if (isset($_SESSION["user"])) {
 	header("location:./index.php");
 }
 
+if (isset($_POST['login_user_with_product'])) {
+	header("location:./Pro-payment.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
