@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (isset($_SESSION["user"])) {
 	header("location:./index.php");
 }
@@ -14,7 +13,7 @@ if (isset($_POST['login_user_with_product'])) {
 
 <head>
     <?php 
-    include('head.php')
+    include('head.php');
     ?>
     <link rel="stylesheet" href="./Style/signIn-style.css" />
     <title>Sign in & Sign up Form</title>
@@ -112,6 +111,7 @@ if (isset($_POST['login_user_with_product'])) {
 
 
     <script src="./JScript/user-info.js"></script>
+    <script src="./JScript/cart.js"></script>
 </body>
 
 </html>
