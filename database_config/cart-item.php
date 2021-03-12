@@ -2,7 +2,6 @@
 class Cart extends DB {
   function details () {
   // details() : get details of items in cart
-
     // Empty
     if (count($_SESSION['cart'])==0) {
       return false;

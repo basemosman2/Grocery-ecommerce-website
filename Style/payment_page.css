@@ -1,0 +1,64 @@
+.p-container {
+  width: 80%;
+  height: 80vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 80px;
+}
+
+.PayTypeSection {
+  width: 50%;
+  height: 100%;
+}
+
+.orderInfo {
+  width: 50%;
+  height: 100%;
+}
+
+.OI_container {
+  padding: 10px;
+  border: 1px solid #776c6c;
+  width: 70%;
+  margin: auto;
+}
+
+.item-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.OI_price {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding: 20px;
+}
+
+.OI_SubPrice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 8px;
+  justify-items: center;
+}
+
+.OI_SubPrice p:nth-child(-n + 2) {
+  font-weight: bold;
+}
+
+.IO_total {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
+.IO_delivery_info {
+  padding: 20px;
+  font-size: 20px;
+}
