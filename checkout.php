@@ -6,9 +6,9 @@
     <?php include('head.php')?>
 </head>
 
-<body onload="cart.checkout()">
+<body>
     <?php
-       include ('database_config/db-conn.php');
+       //include ('database_config/db-conn.php');
        include ('header.php');
        include ('sidebar.php');
        
