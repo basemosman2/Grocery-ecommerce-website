@@ -1,6 +1,5 @@
 .p-container {
   width: 80%;
-  height: 80vh;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -23,19 +22,24 @@
   padding: 10px;
   border: 1px solid #776c6c;
   width: 70%;
-  margin: auto;
+}
+
+.OI_title {
+  font-size: 12px;
 }
 
 .item-container {
   display: flex;
   justify-content: space-between;
-  padding: 15px;
+  padding: 5px;
+  font-size: 12px;
 }
 
 .OI_price {
   border-top: 1px solid;
   border-bottom: 1px solid;
-  padding: 20px;
+  padding: 5px;
+  font-size: 13px;
 }
 
 .OI_SubPrice {
@@ -50,7 +54,7 @@
 }
 
 .IO_total {
-  font-size: 20px;
+  font-size: 16px;
   display: flex;
   justify-content: space-around;
   font-weight: bold;
@@ -59,6 +63,6 @@
 }
 
 .IO_delivery_info {
-  padding: 20px;
-  font-size: 20px;
+  padding: 8px;
+  font-size: 18px;
 }
