@@ -66,3 +66,31 @@
   padding: 8px;
   font-size: 18px;
 }
+
+.PayTypeSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.PayTypeSection button {
+  padding: 10px 20px;
+  width: 200px;
+  outline: none;
+  border: 1px solid #fe696a;
+  border-radius: 7px;
+  background: #fc381e;
+  opacity: 0.9;
+  margin: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  transition: 0.4s ease-out;
+  cursor: pointer;
+  margin: 15px;
+}
+
+.PayTypeSection button:nth-child(1) {
+  background: #1919b3;
+  border-color: darkgrey;
+}
