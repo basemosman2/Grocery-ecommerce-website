@@ -133,11 +133,11 @@ switch ($_POST['req']) {
     <p><?= sprintf("£%0.2f", $f_Total)?></p>
 </div>
 <?php
+if ($total <= 25) {
+  echo "<h2 class='cart-alert'>Minimum Subtotal Order Spend £25 pound</h2>";
+  exit();
+}
   if (count($_SESSION['cart']) > 0 && !isset($_SESSION['user']["uid"])) {
-    if ($total <= 25) {
-      echo "<h2 class='cart-alert'>Minimum Subtotal Order Spend £25 pound</h2>";
-      exit();
-    }
       echo ' <input type="submit"  name="user_with_product" class="btn-submit"value="Ready To Checkout">';
     
   }else if(isset($_SESSION['user']["uid"])){
