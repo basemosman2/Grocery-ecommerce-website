@@ -77,6 +77,8 @@ include('../database_config/user-data.php');
                 $_SESSION["user"]["address"] = $value["address1"];
                 $_SESSION["user"]["postcode"] = $value["address2"];
                 $_SESSION["user"]["email"] = $value["email"];
+                $_SESSION["user"]["mobileNo"] = $value["mobile"];
+                
             }
             echo "login_success";
         }else{
