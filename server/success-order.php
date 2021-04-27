@@ -126,7 +126,7 @@ include ('../database_config/order-complete.php');
                 <h2>Total</h2>
             </td>
             <td>
-                <h2>'.sprintf("£%0.2f",$order[0]['final_total']/100).'</h2>
+                <h2>'.sprintf("£%0.2f",$order[0]['final_total']).'</h2>
             </td>
         </tr>
     </table>
