@@ -1,6 +1,6 @@
 <?php
 session_start();
-$total = $_SESSION['total-pay']*100;
+$total = $_SESSION['bill']['total-pay']*100;
 
 require_once '../vendor/autoload.php';
 \Stripe\Stripe::setApiKey('sk_test_51IWM02CcwrWlYxgf5F7RdXjKnFtey5RhV5Ry1xyeb8ICP2MrMNFs3oC9EnJAfEhbtqRd2HEPbnBE7dxmm0wHo7cb00B3hLYufA');
@@ -22,8 +22,8 @@ $checkout_session = \Stripe\Checkout\Session::create([
     'quantity' => 1,
   ]],
   'mode' => 'payment',
-  'success_url' => $YOUR_DOMAIN . '/success.php',
-  'cancel_url' => $YOUR_DOMAIN . '/cancel.php',
+  'success_url' => $YOUR_DOMAIN . '/success.php?type=card&session_id={CHECKOUT_SESSION_ID}',
+  'cancel_url' => $YOUR_DOMAIN . '/checkout.php',
 ]);
 
 echo json_encode(['id' => $checkout_session->id]);

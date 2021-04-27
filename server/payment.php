@@ -1,7 +1,11 @@
 <?php
     include('../database_config/db-conn.php');
     include ('../database_config/cart-item.php');
-  
+    
+    $address = $_SESSION['user']['address'];
+    $postcode = $_SESSION['user']['postcode'];
+
+
     $cartList = new Cart();
     $products = $cartList -> details();
     $sub = 0;
@@ -9,7 +13,6 @@
     $serCharge=0;
     $deliCharg =4.00;
     $f_Total=0;
-    $res="";
     if (count($_SESSION['cart'])>0) {
         foreach ($_SESSION['cart'] as $id => $qty) {
             $sub = (int)$qty * (double)$products[$id]['product_price'];
@@ -26,9 +29,11 @@
 
 
 <?php
-
-
         }
+        $_SESSION['bill']['total-pay'] = round($f_Total, 2);
+        $_SESSION['bill']['sub-total'] = round($total, 2);
+        $_SESSION['bill']['serCharge'] = round($serCharge, 2);
+        $_SESSION['bill']['delivery'] = round($deliCharg, 2);
         ?>
 
 <div class="OI_price">
@@ -47,7 +52,8 @@
 </div>
 <div class="IO_delivery_info">
     <i class="fas fa-truck"></i>
-    <span>Delivery ASAP</span>
+    <span>Delivery ASAP To</span>
+    <p><?= $address.', '.$postcode?></p>
 </div>
 
 <?php
