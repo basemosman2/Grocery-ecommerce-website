@@ -12,12 +12,12 @@
 
 <body>
     <?php include("header.php")?>
-
     <section class="p-container">
-        <?php var_dump($_SESSION['total-pay']);?>
         <div class="PayTypeSection">
-            <button type="button" id="checkout-button">Pay By Card</button>
-            <button type="button" id="checkout-button">Cash On Delivery</button>
+            <img src="./img/slide03.png" alt="">
+            <h1>How do you want to pay?</h1>
+            <button type="button" id="checkout-card">Pay By Card</button>
+            <a href="success.php?type=cash" id="checkout-cash">Cash On Delivery</a>
         </div>
         <div class="orderInfo">
             <div class="OI_container">
@@ -34,36 +34,7 @@
 <script src="./JScript/cart.js"></script>
 <script src="./JScript/payment.js"></script>
 <script type="text/javascript">
-// Create an instance of the Stripe object with your publishable API key
-var stripe = Stripe(
-    "pk_test_51IWM02CcwrWlYxgfTl083urqFby3F77ksOhf2KqW73ywiSOVHLEQaJzrNy2c2u5Vkw80TThmsVV3fw15efvllAVG00FzXOwkk9");
-var checkoutButton = document.getElementById("checkout-button");
 
-checkoutButton.addEventListener("click", function() {
-    fetch("server/create-checkout-session.php", {
-            method: "POST",
-        })
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(session) {
-            return stripe.redirectToCheckout({
-                sessionId: session.id
-            });
-        })
-        .then(function(result) {
-            // If redirectToCheckout fails due to a browser or network
-            // error, you should display the localized error message to your
-            // customer using error.message.
-            if (result.error) {
-                alert(result.error.message);
-            }
-        })
-        .catch(function(error) {
-            console.error("Error:", error);
-            console.log(error);
-        });
-});
 </script>
 
 </html>
