@@ -22,6 +22,7 @@
   padding: 10px;
   border: 1px solid #776c6c;
   width: 70%;
+  box-shadow: 0px 0px 3px 0px #000;
 }
 
 .OI_title {
@@ -33,6 +34,10 @@
   justify-content: space-between;
   padding: 5px;
   font-size: 12px;
+}
+
+.item-container p {
+  max-width: 300px;
 }
 
 .OI_price {
@@ -67,13 +72,8 @@
   font-size: 18px;
 }
 
-.PayTypeSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.PayTypeSection button {
+.PayTypeSection button,
+.PayTypeSection a {
   padding: 10px 20px;
   width: 200px;
   outline: none;
@@ -90,7 +90,34 @@
   margin: 15px;
 }
 
-.PayTypeSection button:nth-child(1) {
-  background: #1919b3;
+.PayTypeSection a {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.PayTypeSection a:hover {
+  background-color: #cc402e;
+}
+
+.PayTypeSection #checkout-card {
+  background: #3636ab;
   border-color: darkgrey;
+}
+
+.PayTypeSection #checkout-card:hover {
+  background-color: #393979;
+}
+
+.PayTypeSection img {
+  width: 300px;
+}
+
+.PayTypeSection h1 {
+  width: 300px;
+  font-size: 22px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin: 20px;
+  text-shadow: 4px 1px 7px #9a9a9a;
 }

@@ -1,0 +1,83 @@
+.success_body_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.card-body {
+  text-align: center;
+  padding: 30px;
+  border: 1px solid #b1acac;
+  border-radius: 7px;
+  width: 50%;
+}
+
+.htitle {
+  font-size: 30px;
+  font-weight: 700;
+  color: #3f4552;
+  margin: 15px;
+}
+
+.card-body p {
+  color: #4d535a;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.card-body p span {
+  color: black;
+}
+
+.card-body a {
+  text-decoration: none;
+  color: #4b566b !important;
+  display: inline-block;
+  padding: 12px 25px;
+  border: 1px solid #e3e9ef;
+  border-radius: 5px;
+  text-transform: capitalize;
+  background-color: #f3f5f9;
+  font-size: 22px;
+  margin: 14px;
+}
+
+.card-body a:hover {
+  background-color: #bcc3d0;
+}
+
+.loader {
+  position: absolute;
+  width: 99%;
+  height: 98%;
+  background: #333232;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loader p {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: capitalize;
+  margin: 30px;
+}
+
+.spinner {
+  background: transparent;
+  height: 200px;
+  width: 200px;
+  border: 13px solid rgb(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 13px solid #fff;
+  animation: animate 2s infinite linear;
+}
+
+@keyframes animate {
+  to {
+    transform: rotate(360deg);
+  }
+}
