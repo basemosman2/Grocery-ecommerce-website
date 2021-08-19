@@ -1,8 +1,5 @@
 <?php
 
-// session_start();
-// if (!isset($_SESSION['cart'])) { $_SESSION['cart'] = []; }
-
 include ('../database_config/db-conn.php');
 include ('../database_config/cart-item.php');
 
@@ -15,11 +12,11 @@ switch ($_POST['req']) {
 
       case "add":
         if (isset($_SESSION['cart'][$_POST['product_id']])) {
-          $_SESSION['cart'][$_POST['product_id']] ++;
+          $_SESSION['cart'][$_POST['product_id']] += $_POST['qty'];
         } else {
-          $_SESSION['cart'][$_POST['product_id']] = 1;
+          $_SESSION['cart'][$_POST['product_id']] = $_POST['qty'];
         }
-        echo "Item added to cart ";
+        echo "Added";
         break;
 
         case "count":
@@ -66,7 +63,7 @@ switch ($_POST['req']) {
                 }
               }
               break;
-
+              
               case 'remove':
                   $qty = $_POST['qty'] -1;
                   if($qty == 0){
@@ -100,13 +97,24 @@ switch ($_POST['req']) {
 <div class="chout-cartItem" id="choutItem<?=$id?>">
     <div class="item-content">
         <input type="hidden" name="product_id[]" value="<?= $id ?>" />
-        <img src="./images/<?= $products[$id]['product_image'] ?>" alt="icon">
-        <h3><?= $products[$id]['product_name'] ?></h3>
-        <input id='choutQty_<?= $id ?>' onchange='cart.change(<?= $id ?>);' type='number' value='<?= $qty ?>' />
+        <div class="img-box">
+            <img src="./images/<?= $products[$id]['product_image'] ?>" alt="icon">
+        </div>
+        <div class="pro-name">
+            <h3><?= $products[$id]['product_name'] ?></h3>
+        </div>
+        <div class="qty-input">
+            <i class="fa fa-minus icon" onclick='cart.change( -1 ,<?= $id ?>);'></i>
+            <input id='choutQty_<?= $id ?>' type='number' value='<?= $qty ?>' min="1" />
+            <i class="fa fa-plus icon" onclick='cart.change( 1 ,<?= $id ?>);'></i>
+        </div>
+        <div class="price-box">
+            <p class="chout-cart-price"> £<?= $products[$id]['product_price']?></p>
+        </div>
+        <div class="remove-icon">
+            <i class="fa fa-trash-alt" onclick="cart.choutRemove(<?=$id?>);"></i>
+        </div>
     </div>
-    <i class="fa fa-trash-alt" onclick="cart.choutRemove(<?=$id?>);"></i>
-    <p class="chout-cart-price"> £<?= $products[$id]['product_price']?>
-    </p>
 </div><?php
                     }
                   }else{?>
