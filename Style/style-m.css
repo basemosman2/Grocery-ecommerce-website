@@ -117,6 +117,8 @@
 .login-wel {
   display: flex;
   align-items: center;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .logout-link {
@@ -310,6 +312,8 @@
   height: 100%;
   background: white;
   top: 70px;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
 }
 .btn-box {
   display: flex;
@@ -339,7 +343,7 @@
 
 .menus {
   position: relative;
-  height: 250px;
+  height: 100%;
 }
 
 .main-menu {
@@ -356,7 +360,7 @@
 
 .menus li {
   display: flex;
-  padding: 10px 20px;
+  padding: 5px 10px;
   align-items: center;
   justify-content: space-between;
   background: white;
@@ -399,7 +403,11 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #cdcfd3;
-  padding: 10px;
+  padding: 10px 20px;
+}
+
+.sCateMneu a:hover {
+  color: #fe736c;
 }
 
 .main-menu ul li a {
@@ -407,8 +415,32 @@
   color: #505152;
 }
 
-.main-menu ul li:hover a {
-  color: #fe736c;
+.main-menu ul li:hover a,
+.main-menu ul li:hover i {
+  color: #f54646;
+}
+
+.fa-angle-down {
+  transition: 0.2s ease;
+}
+
+.fa-angle-down.flip {
+  transform: rotate(180deg);
+}
+
+.login-wel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.logout-link {
+  padding: 10px;
+  font-size: 30px;
+  text-decoration: none;
+  color: #f54646;
+  transform: rotate(180deg);
 }
 
 /* end of menus ------------- */
@@ -423,7 +455,7 @@
 .email {
   display: flex;
   align-items: center;
-  margin: 12px 0;
+  margin: 4px 0;
 }
 
 .contactform i {
@@ -440,15 +472,15 @@
 }
 
 .contactform p {
-  font-size: 15px;
-  color: #2b2b2c;
+  font-size: 16px;
+  color: #949393;
   margin: 0;
 }
 
 .s-icons {
   display: block;
   text-align: center;
-  margin: 12px 0;
+  margin: 4px 0;
 }
 
 .s-icons a {
@@ -459,7 +491,19 @@
 }
 
 .s-icons a:hover i {
-  color: #505152;
+  color: #f5f5f5;
+}
+
+.s-icons a:hover {
+  background: #f54646;
+}
+
+.f-container > h1 {
+  font-size: 25px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-left: 3px;
 }
 
 /* end of side menu ------------------ */
@@ -546,13 +590,20 @@ main {
   background: #dbe3eb;
   padding: 0 0 0 10px;
   float: right;
-  margin-top: 70px;
+  margin-top: 30px;
+  position: relative;
+}
+
+.img-container img {
+  position: absolute;
+  z-index: 1;
+  right: 0;
 }
 
 .cat-text {
   display: flex;
   align-items: center;
-  padding-top: 20px;
+  margin-top: 100px;
 }
 
 .cat-text i {
@@ -566,15 +617,12 @@ main {
 }
 
 .h-title {
-  margin-top: 20px;
-  padding: 10px;
+  margin-top: 10px;
+  padding: 30px;
 }
 
-.all-cards {
-  margin-top: 15px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-row-gap: 10px;
+.prod-catalog {
+  margin-top: 60px;
 }
 
 .card-product {
@@ -624,12 +672,14 @@ main {
 }
 
 .added {
-  width: 100%;
+  width: 30%;
   display: none;
   margin: auto;
   background-color: #59c879;
-  padding: 10px 0;
-  border-radius: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+  font-size: 16px;
 }
 
 .card-product:hover a {
@@ -642,27 +692,32 @@ main {
 
 .f-container {
   background: #373f50;
-  padding: 10px;
-  margin-top: 30px;
-  overflow: hidden;
+  padding: 6px;
+  margin-top: 20px;
 }
 
 .f-container h1 {
   color: white;
   font-size: 24px;
-  font-weight: 500;
-  letter-spacing: 3px;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
 .f-contents {
-  padding: 10px;
+  padding: 4px;
   display: flex;
-  justify-content: space-around;
+}
+
+.categories-list {
+  margin-left: 50px;
+  width: 40%;
+  border-right: inset;
 }
 
 .f-contents ul {
   list-style: none;
-  font-size: 16px;
+  font-size: 18px;
+  letter-spacing: 2px;
 }
 
 .f-contents ul li a {
@@ -673,32 +728,6 @@ main {
 
 .f-container ul a:hover {
   color: #fe696a;
-}
-
-.app-content .iso,
-.android {
-  background: #2b3445;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 200px;
-  cursor: pointer;
-}
-
-.iso,
-.android .a-content {
-  display: inline-block;
-  text-align: right;
-}
-.app-content i {
-  font-size: 30px;
-  color: white;
-}
-.app-content h2 {
-  font-size: 14px;
 }
 
 .copyright-content {

@@ -1,3 +1,9 @@
+.pcon {
+  background: #dbe3eb;
+  width: 80%;
+  float: right;
+  height: 100%;
+}
 .p-container {
   width: 80%;
   margin: auto;

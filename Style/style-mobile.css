@@ -1,4 +1,23 @@
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1024px) {
+  .btn-box .cate,
+  .menu {
+    font-size: 14px;
+  }
+
+  .pcon {
+    width: 77%;
+  }
+
+  .PayTypeSection img {
+    width: 220px !important;
+  }
+  .PayTypeSection h1 {
+    width: 200px !important;
+    font-size: 18px;
+    margin: 15px auto !important;
+  }
+}
+@media only screen and (max-width: 800px) {
   .logo {
     font-size: 12px;
   }
@@ -7,30 +26,95 @@
     align-items: center;
   }
 
-  .m-sicon {
-    margin-right: 10px;
-  }
-
   .fa-bars {
     font-size: 18px;
   }
 
-  .searchbox,
+  .container {
+    padding: 10px;
+  }
+
+  .prod-catalog {
+    margin-top: 0;
+  }
+
+  .added {
+    width: 100px;
+    height: 50px;
+    top: 30px;
+  }
+
+  .searchbox button {
+    font-size: 24px;
+  }
+
+  .m-sicon {
+    font-size: 24px;
+  }
+
+  .cart-icon-box {
+    margin: 0;
+  }
+
   .signbox,
   .cart {
     display: none;
   }
 
+  .searchbox {
+    position: absolute;
+    top: -120%;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+  }
+
+  .searchbox.sbActive {
+    display: block;
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 14%);
+    padding: 10px 9px;
+  }
+
   .side-menu {
     width: 80%;
     z-index: 99;
-    top: 73px;
-    left: -500px;
-    display: none;
+    top: 70px;
+    left: -100%;
+    transition: 0.5s ease;
+    position: absolute;
+    -webkit-transition: all 0.5s ease;
+  }
+
+  .signin-box-text h2 {
+    font-size: 20px;
+  }
+
+  .side-menu.sMActive {
+    width: 100%;
+    left: 0;
+    position: fixed;
+  }
+
+  .btn-box .cate,
+  .btn-box .menu {
+    font-size: 24px;
+  }
+
+  .menus {
+    font-size: 30px;
+  }
+
+  .sCateMneu {
+    font-size: 22px;
   }
 
   main {
-    width: 100%;
+    min-width: 100%;
+    min-height: 90vh;
+    margin-top: 70px;
   }
 
   .slideshow-container {
@@ -48,5 +132,134 @@
 
   .card-price-content a {
     opacity: 1;
+  }
+
+  .img-container img {
+    display: none;
+  }
+
+  .f-contents {
+    flex-direction: column;
+  }
+  .categories-list {
+    width: 80%;
+    padding: 15px 0;
+    border-bottom: inset;
+    border-right: none;
+  }
+  .contactform {
+    margin-top: 20px;
+  }
+
+  .s-icons {
+    text-align: left;
+    margin-top: 5px;
+  }
+
+  .copyright-content {
+    padding: 10px 3px;
+    font-size: 7px;
+  }
+
+  .m-display-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .p-container {
+    flex-direction: column-reverse;
+    width: 100%;
+    text-align: center;
+  }
+
+  .PayTypeSection img {
+    display: none;
+  }
+
+  .orderInfo {
+    width: 100% !important;
+  }
+
+  .orderInfo > div {
+    width: 100%;
+  }
+
+  .PayTypeSection {
+    width: 100% !important;
+  }
+
+  .pcon {
+    width: 100% !important;
+    height: 100%;
+  }
+
+  .PayTypeSection h1 {
+    width: 200px !important;
+    font-size: 18px !important;
+  }
+
+  .card-body {
+    width: 80% !important;
+  }
+}
+
+@media all and (max-width: 500px) {
+  #chout-cart .chout-cartItem .item-content {
+    grid-template-areas:
+      "img name price"
+      "img qty remove";
+    width: 100%;
+    grid-template-columns: 50px 50% 10% 10%;
+    gap: 10px;
+    margin: 0;
+  }
+
+  .item-content .img-box {
+    max-width: 50px;
+    max-height: 50px;
+  }
+
+  .item-content .pro-name {
+    font-size: 12px;
+  }
+
+  .item-content .qty-input .icon {
+    font-size: 10px;
+  }
+  .item-content .qty-input input {
+    width: 50px;
+    font-size: 18px;
+    margin: 0 8px;
+  }
+
+  .input-field {
+    width: 100% !important;
+    margin: 4px !important;
+    height: 45px !important;
+  }
+
+  .pcon {
+    height: 100%;
+  }
+
+  .card-body {
+    padding: 5px !important;
+  }
+
+  .htitle {
+    font-size: 22px !important;
+    margin: 6px !important;
+  }
+
+  .card-body p {
+    font-size: 16px !important;
+    line-height: 20px !important;
+  }
+
+  .card-body a {
+    padding: 7px 10px !important;
+    margin: 15px 0 !important;
   }
 }
