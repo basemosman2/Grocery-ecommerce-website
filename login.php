@@ -112,6 +112,7 @@ if (isset($_POST['login_user_with_product'])) {
 
     <script src="./JScript/user-info.js"></script>
     <script src="./JScript/cart.js"></script>
+    <script src="./JScript/script.js"></script>
 </body>
 
 </html>
