@@ -1,9 +1,14 @@
 <?php
 class Products extends DB {
 
-function getrundproduct($cate){
-  $pro_view = $this->fetch("SELECT * FROM `products` where department = '$cate' ORDER BY RAND() LIMIT 20 ");
-  return $pro_view;
+function getrundproduct(){
+  $products['fruit-vag'] = $this->fetch("SELECT * FROM `products` where department = 'fruit-vag' ORDER BY RAND() LIMIT 20 ");
+  $products['groceries'] = $this->fetch("SELECT * FROM `products` where department = 'Grocery' ORDER BY RAND() LIMIT 20 ");
+  $products['milks'] = $this->fetch("SELECT * FROM `products` where department = 'milks' ORDER BY RAND() LIMIT 20 ");
+  $products['meats'] = $this->fetch("SELECT * FROM `products` where department = 'meats' ORDER BY RAND() LIMIT 20 ");
+  $products['snacks'] = $this->fetch("SELECT * FROM `products` where department = 'snacks' ORDER BY RAND() LIMIT 20 ");
+  
+  return $products;
 }
 
   function get ($cate) {
