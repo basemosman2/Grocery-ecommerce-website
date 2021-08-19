@@ -8,8 +8,8 @@
                 </div>
             </a>
             <div class="searchbox">
-                <form action="">
-                    <input type="text" />
+                <form method="GET" action="cat_products.php" id="search_form">
+                    <input type=" text" name="iSearch" id="i_Search" />
                     <button type="submit">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
@@ -19,36 +19,19 @@
                 <button class="m-sicon">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
-                <i class="far fa-user m-user-icon"></i>
+                <a href="./login.php">
+                    <i class="far fa-user m-user-icon"></i>
+                </a>
                 <div class="cart-icon-box m-cart">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span>1</span>
+                    <span id="m-cart-count">0</span>
+                </div>
+                <div class="menu-bar-box">
+                    <i class="fas fa-bars"></i>
                 </div>
             </div>
-            <i class="fas fa-bars menu-bars"></i>
-            <?php
-                if (!isset($_SESSION['user'])) {
-                    echo '<a href="./login.php" class="login-link">
-                    <div class="signbox">
-                        <i class="far fa-user"></i>
-                        <div class="signin-box-text">
-                            <h3>Hello,Sign in</h3>
-                            <h2>My Account</h2>
-                        </div>
-                    </div>
-                </a>';
-                }else{
-                    echo '<div class="login-wel">
-                    <a href="logout.php" class="logout-link">
-                        <i class="fas fa-sign-out-alt"></i>
-                    </a>
-                    <div class="signin-box-text">
-                        <h2>Hello,</h2>
-                        <h3>'.$_SESSION['user']['name'].'</h3>
-                    </div>
-                </div>';
-                }
-            ?>
+
+
 
 
 
