@@ -11,29 +11,38 @@
 </head>
 
 <body>
-    <?php include("header.php")?>
-    <section class="p-container">
-        <div class="PayTypeSection">
-            <img src="./img/slide03.png" alt="">
-            <h1>How do you want to pay?</h1>
-            <button type="button" id="checkout-card">Pay By Card</button>
-            <a href="success.php?type=cash" id="checkout-cash">Cash On Delivery</a>
-        </div>
-        <div class="orderInfo">
-            <div class="OI_container">
-                <div class="OI_title">
-                    <h1> Your Order</h1>
-                </div>
-                <div class="OI_cart_list" id="OI_list">
+    <?php 
+        
+        if (count($_SESSION['cart'])<=0) {
+            header("Location: http://localhost/projects2020/e-grocery/index.php");
+            exit;
+        }
+        include("header.php");
+         include ('sidebar.php');
+    ?>
+    <div class="pcon">
+        <section class="p-container">
+            <div class="PayTypeSection">
+                <img src="./img/slide03.png" alt="">
+                <h1>Select Payment Type:</h1>
+                <button type="button" id="checkout-card">Pay By Card</button>
+                <a href="success.php?type=cash" id="checkout-cash">Cash On Delivery</a>
+            </div>
+            <div class="orderInfo">
+                <div class="OI_container">
+                    <div class="OI_title">
+                        <h1> Your Order</h1>
+                    </div>
+                    <div class="OI_cart_list" id="OI_list">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
+        </section>
+    </div>
 </body>
 <script src="./JScript/cart.js"></script>
 <script src="./JScript/payment.js"></script>
-<script type="text/javascript">
+<script src="./JScript/script.js"></script>
 
 </script>
 
