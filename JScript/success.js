@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    $(window).on("load",() =>{
+    $(window).on("load",(e) =>{
+
         let type = $('#payType').val();
         $('.loader').css('display','flex');
     $.ajax({
