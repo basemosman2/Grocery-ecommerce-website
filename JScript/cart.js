@@ -7,7 +7,6 @@ var cart = {
         data.append(d, opt.data[d]);
       }
     }
-
     var xhr = new XMLHttpRequest();
     xhr.open('POST', opt.url, true);
     xhr.onload = function(){
@@ -26,24 +25,24 @@ var cart = {
   },
 
   add : function (id) { 
+    let countValue = document.querySelector('#input'+id).value;
         cart.ajax({
         url : "./server/cart.php",
         data : {
           req : "add",
-          product_id : id
+          product_id : id,
+          qty:countValue
         },
         load : function (res) {
           cart.count();
           cart.itemsprice();
           cart.cartlist();
-          // @TODO
           var x = document.getElementById("eAdd"+id);
           x.innerHTML=res;
           x.style.display = "block";
           setTimeout(function () {
           x.style.display = "none";
         }, 500);
-          return false;
         }
       });
     },
@@ -54,7 +53,14 @@ var cart = {
           cart.ajax({
             url : "./server/cart.php",
             data : { req : "count", },
-            target : "page-cart-count"
+            load : function (res) {
+              var mCount = document.querySelector("#m-cart-count");
+              var dCount = document.querySelector("#page-cart-count");
+
+              mCount.innerHTML = res;
+              dCount.innerHTML = res;
+            }
+          
           });
         },
       
@@ -70,11 +76,6 @@ var cart = {
 
               price1.innerHTML = res;
               price2.innerHTML = res;
-
-              // var choutprice = document.querySelector("#chout-price");
-              // var choutservice = document.querySelector("#chout-service");
-              // choutprice.innerHTML =res;
-              // choutservice.innerHTML =res;
               
             }
           });
@@ -129,16 +130,23 @@ var cart = {
             });
           },
 
-          change : function (id) {
-            // change() : change quantity
-              //var x = document.getElementById("gg");
+          change : function (x,id) {
               var qty = document.getElementById("choutQty_"+id).value;
+              let count = parseInt(qty);
+              if (count >= 1) {
+                count = count +x;
+                if (count !=0) {
+                  qty=count;
+                }
+              }
+              console.log(count);
+
               cart.ajax({
                 url : "./server/cart.php",
                 data : {
                   req : "change",
                   product_id : id,
-                  qty : qty
+                  qty : count
                 },
                 load : function (res) {
                   cart.count();
@@ -150,6 +158,10 @@ var cart = {
                   }
                 }
               });
+            },
+
+            change1:function (id) {
+              alert(id);
             },
 
           choutRemove : function (id) {
@@ -171,9 +183,22 @@ var cart = {
             }
 };
 
+function qtyCount(x,id){
+  let countValue = document.querySelector('#input'+id);
+  let count = parseInt(countValue.value );
+  if (count >= 1) {
+    count = count +x;
+    if (count !=0) {
+      countValue.value=count;
+    }
+  }
+}
 
-window.addEventListener("load", cart.count);
-window.addEventListener("load", cart.itemsprice);
-window.addEventListener("load", cart.cartlist);
-window.addEventListener("load", cart.checkout);
+
+window.addEventListener("load",function(){
+  cart.count();
+  cart.cartlist();
+  cart.itemsprice();
+});
+
 
