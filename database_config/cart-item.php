@@ -14,13 +14,6 @@ class Cart extends DB {
     return $this->fetch($sql, array_keys($_SESSION['cart']), "product_id");
   }
 
-  // function check_postcode () {
-  // // get () : get order
-  // // PARAM $id : order ID
-  //
-  // return true;
-  // }
-
 
   function get () {
   // get () : get order
