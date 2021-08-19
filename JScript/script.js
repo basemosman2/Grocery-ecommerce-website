@@ -1,10 +1,4 @@
 $(document).ready(function () {
-
-  $(".menu-bars").click(function () {
-    alert("dfdd");
-    console.log("dsds");
-  });
-
   $(".cart").hover(function () {
     $(".cart-item").css("display", "block");
   });
@@ -23,25 +17,41 @@ $(document).ready(function () {
 
   $(".categories-menu ul li").click(function () {
     var x = $(this).attr("href");
-
-    var z = $(".sCateMneu");
-
     $(".sCateMneu").each(function () {
       if ($(this).attr("id") != x) {
         $(this).hide("slow");
       }
     });
 
-    $("#" + x).slideToggle("slow", function () {});
+    $("#" + x).slideToggle("slow");
+
+    $('.categories-menu ul li i').each((i,el)=>{
+      let c = $(el).data('cat');
+      if(x.toLowerCase() != c){
+        $(el).removeClass('flip');
+      }
+    });
+
+    $(`#${x}_angle i`).toggleClass('flip');
+
   });
 
-    $(".credit input[id='credit']").click(function () {
-      $('.card-details').slideToggle();
-    });
+   
+  $(".m-sicon").click(function(){
+    $(".searchbox").toggleClass("sbActive");
+  });
 
-    $(".cash input[id='cash']").click(function () {
-      $('.card-details').slideUp();
-    });
+  $(".cart-icon-box").click(function(){
+    var url = "./checkout.php";    
+    $(location).attr('href',url);
+  });
+
+  $(".menu-bar-box").click(function(){
+    $(".side-menu").toggleClass("sMActive");
+  });
+
+
+
+
 });
-
 

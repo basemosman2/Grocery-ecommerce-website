@@ -37,8 +37,6 @@ $(document).ready(function() {
             url:"./server/payment.php",
             method:"POST",
             success:function(res) {
-                //alert(res);
-                console.log(res);
                 $('#OI_list').html(res);
             }
         })
